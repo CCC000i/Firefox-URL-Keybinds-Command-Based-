@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "URL Keybinds (Command-Based)",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Up to 99 keyboard shortcuts that open configured URLs in a new tab.",
   "browser_specific_settings": {
     "gecko": {
@@ -25,7 +25,7 @@
       "store.js",
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
   "options_ui": {
     "page": "options.html",
