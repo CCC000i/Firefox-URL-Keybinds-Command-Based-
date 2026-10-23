@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>URL Shortcuts</title>
+<style>
+  :root { color-scheme: dark; --bg: #000; --fg: #E0E0E0; --dim: #555; --line: color-mix(in srgb, var(--dim) 45%, transparent); }
+  [hidden] { display: none !important; }
+  * { box-sizing: border-box; }
+  body { font: 13px/1.4 system-ui, sans-serif; background: var(--bg); color: var(--fg); margin: 0; max-width: 1200px; display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+  a { color: inherit; }
+  input, button { vertical-align: middle; font: inherit; background: transparent; color: inherit; border: 1px solid var(--line); border-radius: 0; outline: 0; }
+  input { height: 20px; padding: 0 3px }
+  input:focus, button:focus-visible { border-color: var(--fg); }
+  input::placeholder { color: var(--fg); opacity: .3; }
+  button { padding: 0; height: 22px; cursor: pointer; }
+  button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  #footer { margin-top: auto; }
+  #bottom { position: relative; }
+  #tools { display: flex; gap: 4px; }
+  #tools button span { font-size: 10px; }
+  #export { margin-left: auto; }
+  .dimbutton:not(:hover) { color: var(--dim); }
+  #restore-colors { margin-right:8px; }
+  #settings, #extras { display: flex; flex-wrap: wrap; gap: 4px 0px; padding: 3px 8px; border: 1px solid var(--line); margin-bottom: 0.5px; }
+  #settings label, #extras label { white-space: nowrap; color: var(--dim); margin-right: 18px; }
+  #settings input { width: 72px; margin-left: 2px; }
+  #extras input { margin-left: 2px; }
+  .sw { display: inline-block; width: 14px; height: 14px; vertical-align: middle; border: 1px solid var(--line); margin-left: 5px; }
+  table { margin: 0px 2px; border-collapse: collapse; width: 100%; table-layout: fixed; margin-top: 0px; }
+  th { font-weight: normal; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--dim); text-align: left; padding: 1px; border-bottom: 1px solid var(--line); }
+  td { padding: 0px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; line-height: 0; font-family: monospace; }
+  td input, td button { height: 18px; line-height: normal; }
+  th:nth-child(1), td:nth-child(1) { width: 24px; }
+  th:nth-child(2), td:nth-child(2) { width: 83px; }
+  th:nth-child(4), td:nth-child(4) { width: 170px; }
+  th:nth-child(5), td:nth-child(5) { width: 26%; }
+  td:not(:last-child) { padding-right: 1px; }
+  tr.empty { color: var(--dim); }
+  .url, .key, .note { width: 100%; }
+  .rm { width: 22px; padding: 0; }
+  .ctl { white-space: nowrap; }
+  .ctl button { width: 20px; padding: 0; font-size: 8px; margin-left: 1px; }
+  .pos { vertical-align: middle; width: 40px; margin: 0; text-align: right; -moz-appearance: textfield; }
+  .pos::-webkit-inner-spin-button { display: none; }
+  #add { margin-left: 2px; font-size: 10px; vertical-align: top; width: 22px; height: 18px; padding: 0; align-self: flex-start; }
+  #msg { margin: 1px 0; min-height: 1.4em; font-family: monospace; color: darkred; }
+  #hintBtn { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); padding: 0 10px; }
+  #hint { display: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 10; width: max-content; max-width: 100%; padding: 0 8px; text-align: left; background: var(--bg); border: 1px solid var(--line); color: var(--dim); font-size: 10px; line-height: 1.3; font-style: italic; }
+  #bottom:has(#hintBtn:hover) #hint, #hint:hover { display: block; }
+  button, input, select, textarea, .card, .badge, img { border-radius: 2px; }
+</style>
+<table>
+  <thead><tr><th></th><th>Position</th><th>URL</th><th>Shortcut</th><th>Notes</th></tr></thead>
+  <tbody id="rows"></tbody>
+</table>
+<button id="add" title="Add shortcut (max 99)">+</button>
+<div id="footer">
+  <div id="msg"></div>
+  <div id="settings" hidden>
+    <label>Background <input data-key="bg" spellcheck="false"><span class="sw"></span></label>
+    <label>Active font <input data-key="active" spellcheck="false"><span class="sw"></span></label>
+    <label>Cleared font <input data-key="cleared" spellcheck="false"><span class="sw"></span></label>
+  </div>
+  <div id="extras" hidden>
+    <label>Options Page Shortcut <input class="key" id="optionsKey" placeholder="Ctrl+Alt+O" spellcheck="false"></label>
+  </div>
+  <div id="bottom">
+    <div id="tools">
+      <button id="restore-colors">Restore Colors</button>
+      <button id="settingsBtn" aria-expanded="false" aria-controls="settings">Settings <span>&#9656;</span></button>
+      <button id="extrasBtn" aria-expanded="false" aria-controls="extras">Extras <span>&#9656;</span></button>
+      <button id="export" class="dimbutton">Export Backup</button>
+      <button id="import" class="dimbutton">Import Backup</button>
+      <input type="file" id="file" accept=".json" hidden>
+    </div>
+    <button id="hintBtn" aria-describedby="hint">Guide</button>
+    <div id="hint">Modifiers: Ctrl / Alt / Shift (macOS: Ctrl = Command, MacCtrl = Control). Needs Ctrl or Alt; F-keys work alone.<br>Keys: A-Z, 0-9, F1-F12, Comma, Period, Home, End, PageUp, PageDown, Space, Insert, Delete, arrows.<br>Examples: Ctrl+Alt+K, Alt+Shift+1, F8. Up to 99 rows; row N = "URL Shortcut NN" in <a href="about:addons" class="about">about:addons</a> -> gear -> Manage Extension Shortcuts.<br>Reserved Firefox shortcuts cannot be overridden. about: URLs cannot be opened.</div>
+  </div>
+</div>
+<template id="row"><tr><td><button class="rm" title="Remove shortcut">&minus;</button></td><td class="ctl"><input class="pos" type="number" min="1" title="Position (Enter to jump)"><button class="up" title="Move up">&#9650;</button><button class="dn" title="Move down">&#9660;</button></td><td><input class="url" placeholder="example.com"></td><td><input class="key" placeholder="Alt+Shift+X"></td><td><input class="note" placeholder="Description etc."></td></tr></template>
+<script src="store.js"></script>
+<script src="options.js"></script>

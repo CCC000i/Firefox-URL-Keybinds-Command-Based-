@@ -1,0 +1,336 @@
+{
+  "manifest_version": 2,
+  "name": "URL Keybinds (Command-Based)",
+  "version": "1.0",
+  "description": "Up to 99 keyboard shortcuts that open configured URLs in a new tab.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "url-shortcuts-commands@local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "store.js",
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "slot-01": {
+      "description": "URL Shortcut 01"
+    },
+    "slot-02": {
+      "description": "URL Shortcut 02"
+    },
+    "slot-03": {
+      "description": "URL Shortcut 03"
+    },
+    "slot-04": {
+      "description": "URL Shortcut 04"
+    },
+    "slot-05": {
+      "description": "URL Shortcut 05"
+    },
+    "slot-06": {
+      "description": "URL Shortcut 06"
+    },
+    "slot-07": {
+      "description": "URL Shortcut 07"
+    },
+    "slot-08": {
+      "description": "URL Shortcut 08"
+    },
+    "slot-09": {
+      "description": "URL Shortcut 09"
+    },
+    "slot-10": {
+      "description": "URL Shortcut 10"
+    },
+    "slot-11": {
+      "description": "URL Shortcut 11"
+    },
+    "slot-12": {
+      "description": "URL Shortcut 12"
+    },
+    "slot-13": {
+      "description": "URL Shortcut 13"
+    },
+    "slot-14": {
+      "description": "URL Shortcut 14"
+    },
+    "slot-15": {
+      "description": "URL Shortcut 15"
+    },
+    "slot-16": {
+      "description": "URL Shortcut 16"
+    },
+    "slot-17": {
+      "description": "URL Shortcut 17"
+    },
+    "slot-18": {
+      "description": "URL Shortcut 18"
+    },
+    "slot-19": {
+      "description": "URL Shortcut 19"
+    },
+    "slot-20": {
+      "description": "URL Shortcut 20"
+    },
+    "slot-21": {
+      "description": "URL Shortcut 21"
+    },
+    "slot-22": {
+      "description": "URL Shortcut 22"
+    },
+    "slot-23": {
+      "description": "URL Shortcut 23"
+    },
+    "slot-24": {
+      "description": "URL Shortcut 24"
+    },
+    "slot-25": {
+      "description": "URL Shortcut 25"
+    },
+    "slot-26": {
+      "description": "URL Shortcut 26"
+    },
+    "slot-27": {
+      "description": "URL Shortcut 27"
+    },
+    "slot-28": {
+      "description": "URL Shortcut 28"
+    },
+    "slot-29": {
+      "description": "URL Shortcut 29"
+    },
+    "slot-30": {
+      "description": "URL Shortcut 30"
+    },
+    "slot-31": {
+      "description": "URL Shortcut 31"
+    },
+    "slot-32": {
+      "description": "URL Shortcut 32"
+    },
+    "slot-33": {
+      "description": "URL Shortcut 33"
+    },
+    "slot-34": {
+      "description": "URL Shortcut 34"
+    },
+    "slot-35": {
+      "description": "URL Shortcut 35"
+    },
+    "slot-36": {
+      "description": "URL Shortcut 36"
+    },
+    "slot-37": {
+      "description": "URL Shortcut 37"
+    },
+    "slot-38": {
+      "description": "URL Shortcut 38"
+    },
+    "slot-39": {
+      "description": "URL Shortcut 39"
+    },
+    "slot-40": {
+      "description": "URL Shortcut 40"
+    },
+    "slot-41": {
+      "description": "URL Shortcut 41"
+    },
+    "slot-42": {
+      "description": "URL Shortcut 42"
+    },
+    "slot-43": {
+      "description": "URL Shortcut 43"
+    },
+    "slot-44": {
+      "description": "URL Shortcut 44"
+    },
+    "slot-45": {
+      "description": "URL Shortcut 45"
+    },
+    "slot-46": {
+      "description": "URL Shortcut 46"
+    },
+    "slot-47": {
+      "description": "URL Shortcut 47"
+    },
+    "slot-48": {
+      "description": "URL Shortcut 48"
+    },
+    "slot-49": {
+      "description": "URL Shortcut 49"
+    },
+    "slot-50": {
+      "description": "URL Shortcut 50"
+    },
+    "slot-51": {
+      "description": "URL Shortcut 51"
+    },
+    "slot-52": {
+      "description": "URL Shortcut 52"
+    },
+    "slot-53": {
+      "description": "URL Shortcut 53"
+    },
+    "slot-54": {
+      "description": "URL Shortcut 54"
+    },
+    "slot-55": {
+      "description": "URL Shortcut 55"
+    },
+    "slot-56": {
+      "description": "URL Shortcut 56"
+    },
+    "slot-57": {
+      "description": "URL Shortcut 57"
+    },
+    "slot-58": {
+      "description": "URL Shortcut 58"
+    },
+    "slot-59": {
+      "description": "URL Shortcut 59"
+    },
+    "slot-60": {
+      "description": "URL Shortcut 60"
+    },
+    "slot-61": {
+      "description": "URL Shortcut 61"
+    },
+    "slot-62": {
+      "description": "URL Shortcut 62"
+    },
+    "slot-63": {
+      "description": "URL Shortcut 63"
+    },
+    "slot-64": {
+      "description": "URL Shortcut 64"
+    },
+    "slot-65": {
+      "description": "URL Shortcut 65"
+    },
+    "slot-66": {
+      "description": "URL Shortcut 66"
+    },
+    "slot-67": {
+      "description": "URL Shortcut 67"
+    },
+    "slot-68": {
+      "description": "URL Shortcut 68"
+    },
+    "slot-69": {
+      "description": "URL Shortcut 69"
+    },
+    "slot-70": {
+      "description": "URL Shortcut 70"
+    },
+    "slot-71": {
+      "description": "URL Shortcut 71"
+    },
+    "slot-72": {
+      "description": "URL Shortcut 72"
+    },
+    "slot-73": {
+      "description": "URL Shortcut 73"
+    },
+    "slot-74": {
+      "description": "URL Shortcut 74"
+    },
+    "slot-75": {
+      "description": "URL Shortcut 75"
+    },
+    "slot-76": {
+      "description": "URL Shortcut 76"
+    },
+    "slot-77": {
+      "description": "URL Shortcut 77"
+    },
+    "slot-78": {
+      "description": "URL Shortcut 78"
+    },
+    "slot-79": {
+      "description": "URL Shortcut 79"
+    },
+    "slot-80": {
+      "description": "URL Shortcut 80"
+    },
+    "slot-81": {
+      "description": "URL Shortcut 81"
+    },
+    "slot-82": {
+      "description": "URL Shortcut 82"
+    },
+    "slot-83": {
+      "description": "URL Shortcut 83"
+    },
+    "slot-84": {
+      "description": "URL Shortcut 84"
+    },
+    "slot-85": {
+      "description": "URL Shortcut 85"
+    },
+    "slot-86": {
+      "description": "URL Shortcut 86"
+    },
+    "slot-87": {
+      "description": "URL Shortcut 87"
+    },
+    "slot-88": {
+      "description": "URL Shortcut 88"
+    },
+    "slot-89": {
+      "description": "URL Shortcut 89"
+    },
+    "slot-90": {
+      "description": "URL Shortcut 90"
+    },
+    "slot-91": {
+      "description": "URL Shortcut 91"
+    },
+    "slot-92": {
+      "description": "URL Shortcut 92"
+    },
+    "slot-93": {
+      "description": "URL Shortcut 93"
+    },
+    "slot-94": {
+      "description": "URL Shortcut 94"
+    },
+    "slot-95": {
+      "description": "URL Shortcut 95"
+    },
+    "slot-96": {
+      "description": "URL Shortcut 96"
+    },
+    "slot-97": {
+      "description": "URL Shortcut 97"
+    },
+    "slot-98": {
+      "description": "URL Shortcut 98"
+    },
+    "slot-99": {
+      "description": "URL Shortcut 99"
+    },
+    "open-options": {
+      "description": "Open options page"
+    }
+  }
+}
